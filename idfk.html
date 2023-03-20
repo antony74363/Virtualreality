@@ -1,0 +1,41 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>VR101 Nature Scene: Step 1 Starter</title>
+    <meta name="description" content="VR101 Nature Scene: Step 1 Starter">
+    <script src="https://aframe.io/releases/1.1.0/aframe.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/alvinwan/aframe-low-poly@0.0.5/dist/aframe-low-poly.min.js"></script>
+    <script src="https://cdn.rawgit.com/matthewbryancurtis/aframe-star-system-component/db4f1030/index.js"></script>
+    <script src="./ocean.js"></script>
+  </head>
+  <body>
+    <a-scene background="color:#0f011a">
+        <a-entity star-system="radius: 200"></a-entity>
+      
+      <a-light type="directional" intensity="0.3" color="#6909b3" position="5 3 1" light="castshadow:true;"></a-light> 
+      <a-light type="directional" intensity="0.2" color="#FFF" position="5 2 1" light="castshadow:true;"></a-light>
+      <a-light type="ambient" intensity="0.15" color="#6909b3"></a-light>
+
+      <a-entity id="temple" shadow position="0 1 -3" >
+        <a-cone id="pillarleft" radius-bottom="0.15" radius-top="0.07" height="2" position="-0.65 0 0"></a-cone>
+        <a-cone id="pillarright" radius-bottom="0.15" radius-top="0.07" height="2" position="0.65 0 0"></a-cone>
+        <a-box id="barlower" scale="2 0.15 0.1" position="0 0.65 0"></a-box>
+        <a-box id="barhigher" scale="2.2 0.2 0.25" position="0 1.05 0"></a-box>
+        <a-box id="caphigher" scale="2.6 0.05 0.3" position="0 1.15 0"></a-box>
+      </a-entity>
+
+      <a-entity id="lantercenter" shadow position="0 1 -3" animation__position="property:position;from:0 1 -3;to:-1 2 -4;loop: true;dir: alternate; dur: 8500;" animation__rotation="property: rotation;from: 5 10 5;to: -10 5 -5;loop: true;dir: alternate;dur: 2000;">
+        <a-cone id="lantern-cone" segments-height="1" segments-radial="4" flat-shading="true" radius-bottom="0.1" height="0.09" position="0 0.16 0" rotation="0 45 0"></a-cone>
+        <a-box id="lantern-roof" scale="0.2 0.02 0.2" position="0 0.1 0"></a-box>
+        <a-box id="lantern-bottom" scale="0.15 0.02 0.15"></a-box>
+        <a-sphere id="lanternorb" radius="0.03" position="0 0.05 0" opacity="1" emissive="#09edda" animation__opacity="property: opacity;from: 0.25;to: 1;loop: true;dir: alternate;"></a-sphere>
+        <a-light id="lanternlight" type="point" intensity="0.2" position="0 0.5 0" color="#09edda" light="castshadow:true;" animation__intensity="property: intensity;from: 0.5;to: 0.6;loop: true;dir: alternate" animation__distance="property:distance;from: 1;to: 2;loop: true;dir: alternate;"></a-light>
+      </a-entity>
+
+      <a-entity id="lanterleft" clone="#lantercenter" position="-1.25 0.5 -3.5"></a-entity>
+      <a-entity id="lanterright" clone="#lantercenter" position="1.25 2 -2.5"></a-entity>
+
+      <a-ocean position="0 0.1 0" shadow depth="50" width="50" amplitude="0" amplitude-variance="0.2" speed-variance="1" opacity="1" density="50" color="#84lf"></a-ocean>
+    </a-scene>
+  </body>
+</html>
